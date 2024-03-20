@@ -88,7 +88,7 @@ html{
 
 #home::before {
     content: "";
-    background: url(../bg1.jpg) no-repeat center center/cover;
+    background: url('../bg11.jpg') no-repeat center center/cover;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -105,7 +105,7 @@ html{
     text-align: center;
 }
 
-#home p {
+#home dl {
     font-family: 'Bree Serif', serif;
     color: rgb(19, 11, 11);
     text-align: center;
@@ -114,7 +114,8 @@ html{
 }
 
 /* Services Section  */
-#services {
+#services  {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,6 +245,19 @@ footer{
     font-family: 'Bree Serif', serif;
 }
 
+/* Members Page CSS*/
+table{
+    align-self: center;
+    word-spacing: normal;
+}
+th,td{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#membersTable {
+    padding: 45px;
+}
+
 
 
 
@@ -266,6 +280,8 @@ footer{
 }
 
 .btn {
+    align-items: center;
+    justify-content: center;
     padding: 6px 20px;
     margin: 17px;
     /* border: 2px solid white; */
