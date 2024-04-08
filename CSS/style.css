@@ -292,6 +292,20 @@ th,td{
     cursor: pointer;
 
 }
+.btn2{
+    align-items: center;
+    justify-content: center;
+    border-radius:10px ;
+    padding: 6px 6px;
+    margin: 2px 4px;
+    background-color: rgb(228, 13, 13);
+    color: white;
+    font-size: 1em;
+}
+.btn:hover {
+    color: black;
+    background-color: grey;
+}
 
 .btn:hover {
     color: black;
@@ -300,4 +314,9 @@ th,td{
 
 .center {
     text-align: center;
+}
+
+#log{
+    display: flex;
+    margin-left: 600px;
 }
