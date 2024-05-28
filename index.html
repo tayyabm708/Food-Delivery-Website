@@ -96,28 +96,48 @@
     <section id="contact">
         <h1 class="h-primary center">Contact Us</h1>
         <div id="contact-box">
-            <form action="">
+            <form action="contact.php" method="post">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name" placeholder="Enter your name">
                 </div>
                 <div class="form-group">
-                    <label for="name">Email:</label>
-                    <input type="text" name="email" id="email" placeholder="Enter your e-mail">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
-                    <label for="name">Phone Number:</label>
+                    <label for="phoneNumber">Phone Number:</label>
                     <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number">
                 </div>
                 <div class="form-group">
-                    <label for="name">FeedBack:</label>
-                    <textarea name="message" id="message" cols="50" rows=""></textarea>  
+                    <label for="message">Feedback:</label>
+                    <textarea name="message" id="message" cols="50" rows="3" placeholder="Enter your feedback"></textarea>  
                 </div>
-                <center><button class="btn">Submit Now</button></center>
+                <center><button class="btn" type="submit">Submit Now</button></center>
             </form>
         </div>
-    </section>
-   
+    </section>  
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Perform form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+    
+            if (!name || !email || !phoneNumber || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+    
+            // You can add further validation here, such as email format validation
+    
+            // If all fields are filled, submit the form
+            this.submit();
+        });
+    </script>
     <footer>
         <div class="center">
             Copyright &copy; www.SavorSpot.com. All rights reserved!

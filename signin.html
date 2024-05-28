@@ -9,8 +9,7 @@
     <link rel="stylesheet" media="screen and (max-width: 1244px)" href="css/phone.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Aboreto&family=Baloo+Da+2&family=Bree+Serif&family=Open+Sans:wght@300&family=Ubuntu:wght@300;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Baloo+Da+2&family=Bree+Serif&family=Open+Sans:wght@300&family=Ubuntu:wght@300;500&display=swap"
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,31 +27,28 @@
             <li class="item"><a href="index.html">Our Clients</a></li>
             <li class="item"><a href="index.html">Contact Us</a></li>
             <li class="item"><a href="members.html">Project Members</a></li>
-            </ul>
+        </ul>
 
-            <div id="log">
-                <button class="btn2"><a href="signup.html">Sign Up</a></button>
-                <button class="btn2"><a href="signin.html">Sign In</a></button>
-            </div>
-
+        <div id="log">
+            <button class="btn2"><a href="signup.html">Sign Up</a></button>
+            <button class="btn2"><a href="signin.html">Sign In</a></button>
+        </div>
     </nav>
 
     <section id="contact">
         <h1 class="h-primary center">Welcome to SavorSpot! Please Login</h1>
         <div id="contact-box">
-            <form action="sigin.php">
+            <form id="loginForm" action="signin.php" method="POST" onsubmit="return handleLogin(event)">
                 <div class="form-group">
-                    <label for="phoneNumber/email">Phone Number or Email:</label>
-                    <input type="text" name="phoneNumber/email" id="phoneNumber/email" placeholder="Please enter your phone number or email">
+                    <label for="phoneNumber-email">Phone Number or Email:</label>
+                    <input type="text" name="phoneNumber-email" id="phoneNumber-email" placeholder="Please enter your phone number or email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Please enter your password">
+                    <input type="password" name="password" id="password" placeholder="Please enter your password" required>
                 </div>
-              
-                    <center><button class="btn">Login</button></center>
-                   <center><button class="btn">Reset Password</button></center>
-               
+                <center><button class="btn" type="submit">Login</button></center>
+                <center><button class="btn" type="button" onclick="resetPassword()">Reset Password</button></center>
             </form>
         </div>
     </section>
@@ -66,5 +62,37 @@
             Muhammad Aayan Javed FA21-BSE-001
         </div>
     </footer>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const emailOrPhone = document.getElementById('phoneNumber-email').value;
+            const password = document.getElementById('password').value;
+
+            // Regular expression for email format validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if emailOrPhone is a valid email or phone number
+            if (!emailOrPhone.match(emailRegex)) {
+                alert('Please enter a valid email or phone number.');
+                return false;
+            }
+
+            // Check password length
+            if (password.length < 6 || password.length > 12) {
+                alert('Password must be between 6 and 12 characters.');
+                return false;
+            }
+
+            // If everything is valid, submit the form
+            alert('Login Successfull.')
+            return true;
+        }
+
+        function resetPassword() {
+            alert('Password reset instructions have been sent to your email.');
+            // Here you can add code to handle password reset functionality
+        }
+    </script>
 </body>
 </html>

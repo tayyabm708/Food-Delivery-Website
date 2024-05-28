@@ -9,8 +9,7 @@
     <link rel="stylesheet" media="screen and (max-width: 1244px)" href="css/phone.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Aboreto&family=Baloo+Da+2&family=Bree+Serif&family=Open+Sans:wght@300&family=Ubuntu:wght@300;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Baloo+Da+2&family=Bree+Serif&family=Open+Sans:wght@300&family=Ubuntu:wght@300;500&display=swap"
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,26 +27,25 @@
             <li class="item"><a href="index.html">Our Clients</a></li>
             <li class="item"><a href="index.html">Contact Us</a></li>
             <li class="item"><a href="members.html">Project Members</a></li>
-            </ul>
+        </ul>
 
-            <div id="log">
-                <button class="btn2"><a href="signup.html">Sign Up</a></button>
-                <button class="btn2"><a href="signin.html">Sign In</a></button>
-            </div>
-
+        <div id="log">
+            <button class="btn2"><a href="signup.html">Sign Up</a></button>
+            <button class="btn2"><a href="signin.html">Sign In</a></button>
+        </div>
     </nav>
 
     <section id="contact">
         <h1 class="h-primary center">Create your account</h1>
         <div id="contact-box">
-            <form action="">
+            <form id="signupForm" action="signup.php" method="POST">
                 <div class="form-group">
                     <label for="phoneNumber">Phone Number:</label>
                     <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number">
                 </div>
                 <div class="form-group">
                     <label for="otp">Verification Code:</label>
-                    <input type="text" name="otp" id="otp" placeholder="Enter otp received on your provided cell number">
+                    <input type="text" name="otp" id="otp" placeholder="Enter OTP received on your provided cell number">
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
@@ -55,7 +53,7 @@
                 </div>
                 <div class="form-group">
                     <label for="birthday">Birthday:</label>
-                    <input type="date" name="birthday" id="birthday" >  
+                    <input type="date" name="birthday" id="birthday">  
                 </div>
                 <div class="form-group">
                     <label for="fullName">Full Name:</label>
@@ -63,9 +61,7 @@
                 </div>
                
                 <center>
-                    <button class="btn">
-                        Sign Up
-                    </button>
+                    <button class="btn" type="submit">Sign Up</button>
                 </center>
             </form>
         </div>
@@ -80,5 +76,61 @@
             Muhammad Aayan Javed FA21-BSE-001
         </div>
     </footer>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Fetch form data
+            const formData = new FormData(this);
+            
+            // Validate email format
+            const phoneNumber = formData.get('phoneNumber');
+            if (!isValidPhoneNumber(phoneNumber)) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+
+            // Validate password
+            const password = formData.get('password');
+            if (!isValidPassword(password)) {
+                alert('Password must be between 6 and 12 characters.');
+                return;
+            }
+            
+            // Send form data to PHP script using fetch API
+            fetch('signup.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle response from PHP script
+                if (data.success) {
+                    alert('Sign up successful!');
+                    // Redirect or perform any other action upon successful signup
+                } else {
+                    alert(data.message);
+                    // Display error message or handle errors appropriately
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        // Function to validate phone number format
+        function isValidPhoneNumber(phoneNumber) {
+            // Implement your validation logic here
+            // For example, you can use regular expressions
+            return true; // Placeholder return value
+        }
+
+        // Function to validate password format
+        function isValidPassword(password) {
+            // Check if password meets criteria (e.g., length)
+            return password.length >= 6 && password.length <= 12;
+        }
+    </script>
 </body>
 </html>
