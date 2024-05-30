@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+   
 </head>
 <body>
     <nav id="navbar">
@@ -34,32 +35,24 @@
             <button class="btn2"><a href="signin.html">Sign In</a></button>
         </div>
     </nav>
+    
 
     <section id="contact">
         <h1 class="h-primary center">Create your account</h1>
         <div id="contact-box">
-            <form id="signupForm" action="signup.php" method="POST">
+            <form id="signupForm" action="signup.php" method="post">
                 <div class="form-group">
-                    <label for="phoneNumber">Phone Number:</label>
-                    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label for="otp">Verification Code:</label>
-                    <input type="text" name="otp" id="otp" placeholder="Enter OTP received on your provided cell number">
+                    <label for="username">User Name:</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username">
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Minimum 6 characters and Maximum 12 characters" minlength="6" maxlength="12">
+                    <input type="text" name="password" id="password" placeholder="Enter your password">
                 </div>
                 <div class="form-group">
-                    <label for="birthday">Birthday:</label>
-                    <input type="date" name="birthday" id="birthday">  
+                    <label for="cpassword">Confirm Password:</label>
+                    <input type="cpassword" name="cpassword" id="cpassword" placeholder="Confirm your password">
                 </div>
-                <div class="form-group">
-                    <label for="fullName">Full Name:</label>
-                    <input type="text" name="fullName" id="fullName" placeholder="Please enter your full name">
-                </div>
-               
                 <center>
                     <button class="btn" type="submit">Sign Up</button>
                 </center>

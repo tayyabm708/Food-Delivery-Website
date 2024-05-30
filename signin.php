@@ -1,19 +1,27 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $emailOrPhone = $_POST['phoneNumber-email'];
+$login = false;
+$showError = false;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    include 'dbconnect.php';
+    $username = $_POST['phoneNumber-email'];
     $password = $_POST['password'];
 
-    // Basic validation
-    if (empty($emailOrPhone) || empty($password)) {
-        echo "Please fill in all fields.";
-        exit;
-    }
+    
+     
+    $sql = "Select * from users where username='$username' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+    if ($num == 1){
+        $login = true;
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        header("location: welcome.php");
 
-    // Simulate a successful login (replace with actual authentication logic)
-    if ($emailOrPhone === "user@example.com" && $password === "password123") {
-        echo "Login successful!";
-    } else {
-        echo "Invalid credentials.";
+    } 
+    else{
+        $showError = "Invalid Credentials";
     }
 }
+    
 ?>

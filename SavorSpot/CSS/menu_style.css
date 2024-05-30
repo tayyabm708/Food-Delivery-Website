@@ -1,0 +1,36 @@
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.menu-category {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    padding: 10px 0;
+}
+
+#checkout a {
+    color: white;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#cart-summary {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}

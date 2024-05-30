@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="menu_style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4 text-center">
+            <h1>Food Menu</h1>
+        </header>
+        <main>
+            <div class="menu-category mb-4">
+                <h2 class="bg-dark text-white p-2">Pizzas</h2>
+                <div class="menu-item d-flex justify-content-between align-items-center p-2 border-bottom">
+                    <p class="mb-0">Margherita Pizza - $10</p>
+                    <button class="btn btn-success add-to-cart" data-item="Margherita Pizza" data-price="10">Add to Cart</button>
+                </div>
+                <div class="menu-item d-flex justify-content-between align-items-center p-2 border-bottom">
+                    <p class="mb-0">Pepperoni Pizza - $12</p>
+                    <button class="btn btn-success add-to-cart" data-item="Pepperoni Pizza" data-price="12">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-category mb-4">
+                <h2 class="bg-dark text-white p-2">Burgers</h2>
+                <div class="menu-item d-flex justify-content-between align-items-center p-2 border-bottom">
+                    <p class="mb-0">Cheeseburger - $8</p>
+                    <button class="btn btn-success add-to-cart" data-item="Cheeseburger" data-price="8">Add to Cart</button>
+                </div>
+                <div class="menu-item d-flex justify-content-between align-items-center p-2 border-bottom">
+                    <p class="mb-0">Veggie Burger - $9</p>
+                    <button class="btn btn-success add-to-cart" data-item="Veggie Burger" data-price="9">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-category mb-4">
+                <h2 class="bg-dark text-white p-2">Desserts</h2>
+                <div class="menu-item d-flex justify-content-between align-items-center p-2 border-bottom">
+                    <p class="mb-0">Lotus Sundae- $5</p>
+                    <button class="btn btn-success add-to-cart" data-item="Lotus Sundae" data-price="5">Add to Cart</button>
+                </div>
+                <div class="menu-item d-flex justify-content-between align-items-center p-2 border-bottom">
+                    <p class="mb-0">Fudge Brownie - $12</p>
+                    <button class="btn btn-success add-to-cart" data-item="Fudge Brownie" data-price="12">Add to Cart</button>
+                </div>
+            </div>
+        </main>
+        <footer class="text-center">
+            <div id="cart-summary" class="mb-3"></div>
+            <button id="checkout" class="btn btn-primary btn-block py-3">
+                <a href="payment.html" class="text-white text-decoration-none">Checkout</a>
+            </button>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="menupage.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+HTML and CSS based  responsive website for a food delivery brand. CSS for both laptops and mobile devices is in CSS folder.
